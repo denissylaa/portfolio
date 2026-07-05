@@ -142,14 +142,8 @@
       font-size: clamp(17px, 2.2vw, 20px); font-weight: 500;
       color: var(--ink); margin-bottom: 16px;
     }
-    .hero-role .dot { color: var(--ink-soft); margin: 0 7px; }
-    .hero-typed {
-      font-family: var(--mono); font-size: 14.5px;
-      color: var(--accent); margin-bottom: 22px; min-height: 24px;
-    }
-    .hero-typed .prompt { color: var(--ink-soft); margin-right: 2px; }
     .cursor {
-      display: inline-block; width: 2px; height: 15px;
+      display: inline-block; width: 2px; height: 1em;
       background: var(--accent); margin-left: 3px; vertical-align: middle;
       animation: blink 0.8s step-end infinite;
     }
@@ -435,8 +429,7 @@
         <div class="hero-stagger">
           <p class="hero-kicker">Security Operations · Tirana, Albania</p>
           <h1>Denis Syla</h1>
-          <p class="hero-role">SOC Analyst<span class="dot">·</span>Threat Hunter<span class="dot">·</span>Incident Responder</p>
-          <p class="hero-typed"><span class="prompt">&gt;</span> <span id="typedText">Threat Hunting</span><span class="cursor" aria-hidden="true"></span></p>
+          <p class="hero-role"><span id="typedText">SOC Analyst</span><span class="cursor" aria-hidden="true"></span></p>
           <p class="hero-lede">
  SOC Analyst on the front line of Albania's national cyber defense. Four years hunting threats across
 government infrastructure:<strong>APT campaigns, BEC intrusions</strong>, and <strong>live forensics</strong> on compromised servers.
@@ -466,7 +459,7 @@ toward leading a security-focused organization.
   <!-- ABOUT -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title reveal">A defender's record,<br />written plainly.</h2>
+      <h2 class="section-title reveal">About</h2>
       <div class="about-grid reveal">
         <div class="about-prose">
           <p>
@@ -492,6 +485,7 @@ toward leading a security-focused organization.
           </p>
         </div>
         <aside class="glance" aria-label="At a glance">
+          <h3>// at_a_glance</h3>
           <dl>
             <div><dt>CURRENT ROLE</dt><dd>IT Specialist / SOC Analyst, AKSHI (National Agency for Information Society)</dd></div>
             <div><dt>FOCUS</dt><dd>Threat hunting · DFIR · Incident response · APT intelligence</dd></div>
@@ -534,7 +528,7 @@ toward leading a security-focused organization.
               <li>BEC investigations: AiTM token theft, inbox-rule manipulation, and MFA-bypass patterns.</li>
               <li>Responded to C2 beacon campaigns, LSASS credential dumping, and lateral movement incidents.</li>
               <li>Vulnerability management with Rapid7 InsightVM; external attack-surface and third-party risk monitoring with BitSight.</li>
-              <li>Authored APT threat-intelligence reports covering Iranian, Chinese, Russian, and North Korean known actors.</li>
+              <li>Authored APT threat-intelligence reports covering Iranian, Chinese, Russian, and North Korean actors.</li>
             </ul>
           </div>
         </div>
@@ -791,9 +785,8 @@ toward leading a security-focused organization.
   (function () {
     var el = document.getElementById('typedText');
     if (!el) return;
-    var phrases = ['Threat Hunting', 'Incident Response', 'Digital Forensics', 'KQL Advanced Hunting', 'APT Analysis', 'Malware Investigation'];
-    if (reduced) { el.textContent = 'Threat Hunting · Incident Response · DFIR'; return; }
-    var pIdx = 0, cIdx = phrases[0].length, deleting = false;
+    var phrases = ['SOC Analyst', 'Threat Hunter', 'Incident Responder'];
+    var pIdx = 0, cIdx = phrases[0].length, deleting = true;
     function tick() {
       var cur = phrases[pIdx];
       if (!deleting) {
